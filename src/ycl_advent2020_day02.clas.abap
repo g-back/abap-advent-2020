@@ -41,18 +41,8 @@ CLASS ycl_advent2020_day02 IMPLEMENTATION.
       SUBTRACT 1 FROM pos_1.
       SUBTRACT 1 FROM pos_2.
       letter = letter+0(1).
-      DATA(count) = 0.
-      TRY.
-          IF password+pos_1(1) = letter.
-            ADD 1 TO  count.
-          ENDIF.
-          IF password+pos_2(1) = letter.
-            ADD 1 TO  count.
-          ENDIF.
-        CATCH cx_sy_range_out_of_bounds.
-          CONTINUE.
-      ENDTRY.
-      IF count = 1.
+      IF ( password+pos_1(1) =  letter AND password+pos_2(1) <> letter ) OR
+         ( password+pos_1(1) <> letter AND password+pos_2(1) =  letter ).
         ADD 1 TO result.
       ENDIF.
     ENDLOOP.
