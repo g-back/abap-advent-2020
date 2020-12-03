@@ -1,4 +1,4 @@
-CLASS ltcl_day01 DEFINITION FOR TESTING
+CLASS ltcl_test DEFINITION FOR TESTING
   DURATION SHORT
   RISK LEVEL HARMLESS FINAL.
 
@@ -12,35 +12,35 @@ CLASS ltcl_day01 DEFINITION FOR TESTING
     METHODS given_the_example.
     METHODS given_the_input.
 
-    METHODS day01_part_one_example FOR TESTING.
-    METHODS day01_part_one_input FOR TESTING.
+    METHODS part_one_example FOR TESTING.
+    METHODS part_one_input FOR TESTING.
 
-    METHODS day01_part_two_example FOR TESTING.
-    METHODS day01_part_two_input FOR TESTING.
+    METHODS part_two_example FOR TESTING.
+    METHODS part_two_input FOR TESTING.
 
 ENDCLASS.
 
-CLASS ltcl_day01 IMPLEMENTATION.
+CLASS ltcl_test IMPLEMENTATION.
 
   METHOD setup.
     mo_cut = NEW #( ).
   ENDMETHOD.
 
-  METHOD day01_part_one_example.
+  METHOD part_one_example.
     given_the_example( ).
     DATA(act) = mo_cut->solve_part_one( m_input ).
     cl_abap_unit_assert=>assert_equals( exp = 514579
                                         act = act ).
   ENDMETHOD.
 
-  METHOD day01_part_one_input.
+  METHOD part_one_input.
     given_the_input( ).
     DATA(act) = mo_cut->solve_part_one( m_input ).
-    cl_abap_unit_assert=>assert_equals( exp = 55776
+    cl_abap_unit_assert=>assert_equals( exp = -1 "obfusciated
                                         act = act ).
   ENDMETHOD.
 
-  METHOD day01_part_two_example.
+  METHOD part_two_example.
     given_the_example( ).
 
     DATA(act) = mo_cut->solve_part_two( m_input ).
@@ -48,10 +48,10 @@ CLASS ltcl_day01 IMPLEMENTATION.
                                         act = act ).
   ENDMETHOD.
 
-  METHOD day01_part_two_input.
+  METHOD part_two_input.
     given_the_input( ).
     DATA(act) = mo_cut->solve_part_two( m_input ).
-    cl_abap_unit_assert=>assert_equals( exp = 223162626
+    cl_abap_unit_assert=>assert_equals( exp = -1 "obfusciated
                                         act = act ).
   ENDMETHOD.
 
