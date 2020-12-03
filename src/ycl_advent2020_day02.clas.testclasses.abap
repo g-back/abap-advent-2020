@@ -36,7 +36,7 @@ CLASS ltcl_day01 IMPLEMENTATION.
   METHOD part_one_input.
     given_the_input( ).
     DATA(act) = mo_cut->solve_part_one( m_input ).
-    cl_abap_unit_assert=>assert_equals( exp = -1 "obfusciated
+    cl_abap_unit_assert=>assert_equals( exp = 591
                                         act = act ).
   ENDMETHOD.
 
@@ -51,7 +51,7 @@ CLASS ltcl_day01 IMPLEMENTATION.
   METHOD part_two_input.
     given_the_input( ).
     DATA(act) = mo_cut->solve_part_two( m_input ).
-    cl_abap_unit_assert=>assert_equals( exp = -1 "obfusciated
+    cl_abap_unit_assert=>assert_equals( exp = 335
                                         act = act ).
   ENDMETHOD.
 
