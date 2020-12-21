@@ -48,26 +48,18 @@ CLASS ycl_advent2020_day09 DEFINITION
 ENDCLASS.
 
 
-CLASS ycl_advent2020_day09 IMPLEMENTATION.
 
-  METHOD solve_part_one.
-    LOOP AT input ASSIGNING FIELD-SYMBOL(<i>).
-      IF sy-tabix > preamble_len.
-        IF NOT is_valid( CONV #( <i> ) ).
-          result-number = <i>.
-          result-index = sy-tabix.
-          RETURN.
-        ENDIF.
-        DELETE preamble INDEX 1.
+CLASS YCL_ADVENT2020_DAY09 IMPLEMENTATION.
+
+
+  METHOD find_sequence.
+    LOOP AT tab ASSIGNING FIELD-SYMBOL(<t>).
+      DATA(index) = sy-tabix.
+      result = sequence( index ).
+      IF result IS NOT INITIAL.
+        RETURN.
       ENDIF.
-      APPEND <i> TO preamble.
     ENDLOOP.
-  ENDMETHOD.
-
-  METHOD solve_part_two.
-    faulty = solve_part_one( input = input preamble_len = preamble_len ).
-    tab = input.
-    result = find_sequence(  ).
   ENDMETHOD.
 
 
@@ -87,17 +79,6 @@ CLASS ycl_advent2020_day09 IMPLEMENTATION.
     ENDLOOP.
 
     result = abap_false.
-  ENDMETHOD.
-
-
-  METHOD find_sequence.
-    LOOP AT tab ASSIGNING FIELD-SYMBOL(<t>).
-      DATA(index) = sy-tabix.
-      result = sequence( index ).
-      IF result IS NOT INITIAL.
-        RETURN.
-      ENDIF.
-    ENDLOOP.
   ENDMETHOD.
 
 
@@ -123,4 +104,25 @@ CLASS ycl_advent2020_day09 IMPLEMENTATION.
     ENDLOOP.
   ENDMETHOD.
 
+
+  METHOD solve_part_one.
+    LOOP AT input ASSIGNING FIELD-SYMBOL(<i>).
+      IF sy-tabix > preamble_len.
+        IF NOT is_valid( CONV #( <i> ) ).
+          result-number = <i>.
+          result-index = sy-tabix.
+          RETURN.
+        ENDIF.
+        DELETE preamble INDEX 1.
+      ENDIF.
+      APPEND <i> TO preamble.
+    ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD solve_part_two.
+    faulty = solve_part_one( input = input preamble_len = preamble_len ).
+    tab = input.
+    result = find_sequence(  ).
+  ENDMETHOD.
 ENDCLASS.
