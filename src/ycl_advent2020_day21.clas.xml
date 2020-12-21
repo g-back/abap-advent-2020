@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>YCL_ADVENT2020_DAY09</CLSNAME>
+    <CLSNAME>YCL_ADVENT2020_DAY21</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Advent of Code 2020 D09</DESCRIPT>
+    <DESCRIPT>Advent of Code 2020 D21</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
